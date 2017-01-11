@@ -4,5 +4,4 @@ module.exports = class Card {
     this.suit = suit // 1 - 4 Spades, Hearts, Clubs, Diamonds
   }
 
-
 }
