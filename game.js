@@ -38,19 +38,23 @@ module.exports = class Game {
 
     // If equal values, reinsert card, otherwise increment points
     if (player1Card.value === player2Card.value) {
-      console.log('Same value! Reinsert your cards randomly')
-      this.player1.reinsertCard(player1Card)
-      this.player2.reinsertCard(player2Card)
+      if (this.player1.getHandLength() === 0) {
+        console.log('The last card has the same value. What are the odds!')
+      } else {
+        console.log('Same value! Reinsert your cards randomly')
+        this.player1.reinsertCard(player1Card)
+        this.player2.reinsertCard(player2Card)
+      }
     } else if (player1Card.value === 1) { // If player1 has an Ace
       console.log('Player 1 gets a point!')
       this.player1.addPoints(1)
     } else if (player2Card.value === 1) { // If player2 has an Ace
       console.log('Player 2 gets a point!')
       this.player2.addPoints(1)
-    } else if (player1Card.value > player2Card.value) {
+    } else if (player1Card.value > player2Card.value) { // Player1 wins round
       console.log('Player 1 gets a point!')
       this.player1.addPoints(1)
-    } else if (player2Card.value > player1Card.value) {
+    } else if (player2Card.value > player1Card.value) { // Player2 wins round
       console.log('Player 2 gets a point!')
       this.player2.addPoints(1)
     }

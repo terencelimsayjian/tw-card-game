@@ -3,10 +3,8 @@ const Game = require('./game')
 let game = new Game()
 
 function runGame () {
-  if (game.player1.getHandLength() > 1) {
+  if (game.player1.getHandLength() > 0) {
     game.gameRound()
-  } else if (game.player1.getHandLength() === 0) {
-
   } else {
     console.log(`
       End of game! ${game.rounds} rounds were played.
@@ -20,7 +18,3 @@ function runGame () {
 }
 
 runGame()
-
-/*
-  How to deal with final card
-*/
